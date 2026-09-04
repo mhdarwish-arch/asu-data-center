@@ -198,6 +198,9 @@ html.dark .nav-item.active { color: #E8A8AE; }
 }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
 
+.mobile-menu-btn { display: none; flex-shrink: 0; }
+.sidebar-close-btn { display: none; margin-inline-start: auto; }
+
 .icon-btn {
   width: 36px; height: 36px; border-radius: 10px;
   border: 1px solid var(--border-soft); background: var(--surface);
@@ -445,3 +448,66 @@ html.dark .nav-item.active { color: #E8A8AE; }
   padding: 12px 14px; font-size: 12.3px; color: #7A5A1B; display: flex; gap: 10px; align-items: flex-start;
 }
 html.dark .privacy-note { color: #E0BE7F; border-color: #4A3E22; }
+
+/* ============================================================
+   RESPONSIVE / MOBILE
+   Sidebar becomes an off-canvas drawer below 900px, opened via
+   the hamburger button in the Topbar and closed via backdrop,
+   the in-drawer X button, or by navigating to a new route.
+   ============================================================ */
+
+.sidebar-backdrop {
+  position: fixed; inset: 0; background: rgba(15, 12, 11, 0.5);
+  z-index: 250; backdrop-filter: blur(1px);
+}
+
+@media (max-width: 900px) {
+  .mobile-menu-btn { display: flex; }
+  .sidebar-close-btn { display: flex; }
+
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: min(84vw, 300px);
+    height: 100dvh;
+    z-index: 260;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 0 0 40px rgba(0,0,0,0.25);
+  }
+  .sidebar.sidebar-open { transform: translateX(0); }
+  [dir="rtl"] .sidebar { left: auto; right: 0; transform: translateX(100%); }
+  [dir="rtl"] .sidebar.sidebar-open { transform: translateX(0); }
+
+  .page-content { padding: 18px 16px 48px; }
+  .topbar { padding: 10px 14px; gap: 10px; }
+  .topbar-search { width: clamp(120px, 40vw, 260px); }
+  .refresh-pill { display: none; }
+  .notif-btn { display: none; }
+  .lang-toggle button { padding: 6px 9px; font-size: 11px; }
+
+  .header-row { flex-direction: column; align-items: stretch; gap: 12px; }
+  .selectors { width: 100%; }
+  .selector { flex: 1 1 auto; }
+
+  .login-card { padding: 32px 22px; }
+}
+
+@media (max-width: 560px) {
+  .page-title { font-size: 21px; }
+  .kpi-value { font-size: 24px; }
+  .topbar-search { display: none; }
+  .card-pad { padding: 16px; }
+  .grid { gap: 12px; }
+  .modal { max-width: 100% !important; }
+  .modal-body { padding: 16px; }
+  .insight-card, .org-role-card { padding: 14px; }
+}
+
+/* Safety net: always force the desktop layout back above the breakpoint,
+   even if mobileNavOpen state is left true from a resized window. */
+@media (min-width: 901px) {
+  .sidebar { position: sticky !important; transform: none !important; box-shadow: none !important; width: var(--sidebar-w) !important; }
+  .sidebar-backdrop { display: none !important; }
+  .mobile-menu-btn, .sidebar-close-btn { display: none !important; }
+}

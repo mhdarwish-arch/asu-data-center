@@ -127,7 +127,8 @@ export default function HRFaculty() {
                     <Wallet size={14} /> View Financial Impact
                   </button>
                 </div>
-                <table className="data-table" style={{ marginTop: 12 }}>
+                <div style={{ overflowX: 'auto' }}>
+<table className="data-table" style={{ marginTop: 12 }}>
                   <thead><tr><th>Role</th><th>Headcount</th><th>% of Faculty Workforce</th></tr></thead>
                   <tbody>
                     {facHr.rows.map((r) => (
@@ -139,6 +140,7 @@ export default function HRFaculty() {
                     ))}
                   </tbody>
                 </table>
+</div>
               </div>
 
               {personnel && (

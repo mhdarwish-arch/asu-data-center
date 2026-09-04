@@ -43,7 +43,8 @@ export default function DepartmentDetail() {
       <div className="card card-pad section-gap">
         <div className="card-title">Sample courses</div>
         <div className="card-subtitle">Illustrative course-level breakdown for this department (demonstration data)</div>
-        <table className="data-table" style={{ marginTop: 12 }}>
+        <div style={{ overflowX: 'auto' }}>
+<table className="data-table" style={{ marginTop: 12 }}>
           <thead>
             <tr><th>Course</th><th>Enrolled</th><th>Pass rate</th><th>Section utilization</th></tr>
           </thead>
@@ -58,6 +59,7 @@ export default function DepartmentDetail() {
             ))}
           </tbody>
         </table>
+</div>
       </div>
 
       <button className="btn btn-sm section-gap" onClick={() => navigate(`/faculties/${faculty.id}`)}>

@@ -49,7 +49,8 @@ export default function StudentSuccess() {
         <div className="card card-pad">
           <div className="card-title">Flagged Student Groups (Anonymized)</div>
           <div className="card-subtitle">Sample cases — click to review indicators</div>
-          <table className="data-table" style={{ marginTop: 10 }}>
+          <div style={{ overflowX: 'auto' }}>
+<table className="data-table" style={{ marginTop: 10 }}>
             <thead><tr><th>Group ID</th><th>Risk</th><th>Faculty</th><th></th></tr></thead>
             <tbody>
               {riskStudentGroups.map((s) => (
@@ -62,6 +63,7 @@ export default function StudentSuccess() {
               ))}
             </tbody>
           </table>
+</div>
         </div>
       </div>
 

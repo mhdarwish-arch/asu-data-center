@@ -66,7 +66,8 @@ export default function Operations() {
       <div className="card card-pad section-gap">
         <div className="card-title">Maintenance-Risk Assets</div>
         <div className="card-subtitle">7 assets with elevated failure probability — click for detail</div>
-        <table className="data-table" style={{ marginTop: 12 }}>
+        <div style={{ overflowX: 'auto' }}>
+<table className="data-table" style={{ marginTop: 12 }}>
           <thead>
             <tr><th>Asset</th><th>Type</th><th>Location</th><th>Age (yrs)</th><th>Risk Score</th><th></th></tr>
           </thead>
@@ -86,6 +87,7 @@ export default function Operations() {
             })}
           </tbody>
         </table>
+</div>
       </div>
 
       {selected && (

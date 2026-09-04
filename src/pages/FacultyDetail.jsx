@@ -70,7 +70,8 @@ export default function FacultyDetail() {
           </ResponsiveContainer>
         </div>
 
-        <table className="data-table" style={{ marginTop: 10 }}>
+        <div style={{ overflowX: 'auto' }}>
+<table className="data-table" style={{ marginTop: 10 }}>
           <thead>
             <tr>
               <th>Department</th><th>Enrollment</th><th>Retention</th><th>Graduation</th><th>Research</th><th />
@@ -89,6 +90,7 @@ export default function FacultyDetail() {
             ))}
           </tbody>
         </table>
+</div>
       </div>
 
       <div className="privacy-note section-gap">

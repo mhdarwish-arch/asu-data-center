@@ -49,7 +49,8 @@ export default function DataGovernance() {
       <div className="grid grid-2 section-gap">
         <div className="card card-pad">
           <div className="card-title">Connected Data Sources</div>
-          <table className="data-table" style={{ marginTop: 10 }}>
+          <div style={{ overflowX: 'auto' }}>
+<table className="data-table" style={{ marginTop: 10 }}>
             <thead><tr><th>System</th><th>Status</th><th>Freshness</th></tr></thead>
             <tbody>
               {dataSources.map((s) => (
@@ -61,6 +62,7 @@ export default function DataGovernance() {
               ))}
             </tbody>
           </table>
+</div>
         </div>
 
         <div className="card card-pad">

@@ -7,6 +7,7 @@ export function AppProvider({ children }) {
   const [lang, setLang] = useState('en');
   const [authed, setAuthed] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.dir = translations[lang].dir;
@@ -20,8 +21,8 @@ export function AppProvider({ children }) {
   const t = translations[lang];
 
   const value = useMemo(() => ({
-    lang, setLang, t, authed, setAuthed, darkMode, setDarkMode,
-  }), [lang, t, authed, darkMode]);
+    lang, setLang, t, authed, setAuthed, darkMode, setDarkMode, mobileNavOpen, setMobileNavOpen,
+  }), [lang, t, authed, darkMode, mobileNavOpen]);
 
   return <AppCtx.Provider value={value}>{children}</AppCtx.Provider>;
 }
